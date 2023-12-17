@@ -1,0 +1,792 @@
+{
+  "contractName": "Lottery",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "allTicketInfo",
+      "outputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "name": "bets",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"allTicketInfo\",\"outputs\":[{\"name\":\"owner\",\"type\":\"address\"},{\"name\":\"bets\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Lottery.sol\":\"Lottery\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Lottery.sol\":{\"keccak256\":\"0x2e064352d60c04cc6b895579dffb13cd7254b3309d44c6f7aace0b3e8e63743a\",\"urls\":[\"bzzr://9b7a19ecbd9093d54e8fcb01d95253c6a20d8a9d5846e474b88a36cdaf30c5e5\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610141806100206000396000f3fe608060405234801561001057600080fd5b5060043610610048576000357c010000000000000000000000000000000000000000000000000000000090048063da48c0ba1461004d575b600080fd5b6100796004803603602081101561006357600080fd5b81019080803590602001909291905050506100c2565b604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390f35b6006818154811015156100d157fe5b90600052602060002090600302016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490508256fea165627a7a723058203a9393c38d8f15f67a3e83291dfffb40085bc7c4eb27e6ff23ffd74168c788540029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610048576000357c010000000000000000000000000000000000000000000000000000000090048063da48c0ba1461004d575b600080fd5b6100796004803603602081101561006357600080fd5b81019080803590602001909291905050506100c2565b604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390f35b6006818154811015156100d157fe5b90600052602060002090600302016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806001015490508256fea165627a7a723058203a9393c38d8f15f67a3e83291dfffb40085bc7c4eb27e6ff23ffd74168c788540029",
+  "sourceMap": "24:291:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;24:291:0;;;;;;;",
+  "deployedSourceMap": "24:291:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;24:291:0;;;;;;;;;;;;;;;;;;;;276:36;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;276:36:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.2;\ncontract Lottery{\n    uint id;\n    bool ifWin;\n    bool ifDraw;\n    uint oneBetPrice;\n    uint BonusPool;\n    uint TotalBet;\n    uint timestamp;\n    struct AllTicketInfo{\n        address owner;\n        uint bets;\n        uint[] ticketNumber;\n    }\n    AllTicketInfo[] public allTicketInfo;\n}",
+  "sourcePath": "/Users/yujia/Projects/DApp/FairLottery/contracts/Lottery.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Lottery.sol",
+    "exportedSymbols": {
+      "Lottery": [
+        27
+      ]
+    },
+    "id": 28,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 27,
+        "linearizedBaseContracts": [
+          27
+        ],
+        "name": "Lottery",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 3,
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "46:7:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "46:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 5,
+            "name": "ifWin",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "59:10:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 4,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "59:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 7,
+            "name": "ifDraw",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "75:11:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 6,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "75:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 9,
+            "name": "oneBetPrice",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "92:16:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 8,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "92:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11,
+            "name": "BonusPool",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "114:14:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 10,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "114:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13,
+            "name": "TotalBet",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "134:13:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 12,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "134:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 15,
+            "name": "timestamp",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "153:14:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 14,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "153:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "Lottery.AllTicketInfo",
+            "id": 23,
+            "members": [
+              {
+                "constant": false,
+                "id": 17,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 23,
+                "src": "203:13:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 16,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "203:7:0",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 19,
+                "name": "bets",
+                "nodeType": "VariableDeclaration",
+                "scope": 23,
+                "src": "226:9:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 18,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "226:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 22,
+                "name": "ticketNumber",
+                "nodeType": "VariableDeclaration",
+                "scope": 23,
+                "src": "245:19:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 20,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "245:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 21,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "245:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "AllTicketInfo",
+            "nodeType": "StructDefinition",
+            "scope": 27,
+            "src": "173:98:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 26,
+            "name": "allTicketInfo",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "276:36:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_AllTicketInfo_$23_storage_$dyn_storage",
+              "typeString": "struct Lottery.AllTicketInfo[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 24,
+                "name": "AllTicketInfo",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 23,
+                "src": "276:13:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_AllTicketInfo_$23_storage_ptr",
+                  "typeString": "struct Lottery.AllTicketInfo"
+                }
+              },
+              "id": 25,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "276:15:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_AllTicketInfo_$23_storage_$dyn_storage_ptr",
+                "typeString": "struct Lottery.AllTicketInfo[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28,
+        "src": "24:291:0"
+      }
+    ],
+    "src": "0:315:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Lottery.sol",
+      "exportedSymbols": {
+        "Lottery": [
+          27
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".2"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            27
+          ],
+          "name": "Lottery",
+          "scope": 28
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "id",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2,
+                "name": "ElementaryTypeName",
+                "src": "46:4:0"
+              }
+            ],
+            "id": 3,
+            "name": "VariableDeclaration",
+            "src": "46:7:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "ifWin",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 4,
+                "name": "ElementaryTypeName",
+                "src": "59:4:0"
+              }
+            ],
+            "id": 5,
+            "name": "VariableDeclaration",
+            "src": "59:10:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "ifDraw",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 6,
+                "name": "ElementaryTypeName",
+                "src": "75:4:0"
+              }
+            ],
+            "id": 7,
+            "name": "VariableDeclaration",
+            "src": "75:11:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "oneBetPrice",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 8,
+                "name": "ElementaryTypeName",
+                "src": "92:4:0"
+              }
+            ],
+            "id": 9,
+            "name": "VariableDeclaration",
+            "src": "92:16:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "BonusPool",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 10,
+                "name": "ElementaryTypeName",
+                "src": "114:4:0"
+              }
+            ],
+            "id": 11,
+            "name": "VariableDeclaration",
+            "src": "114:14:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "TotalBet",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 12,
+                "name": "ElementaryTypeName",
+                "src": "134:4:0"
+              }
+            ],
+            "id": 13,
+            "name": "VariableDeclaration",
+            "src": "134:13:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "timestamp",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 14,
+                "name": "ElementaryTypeName",
+                "src": "153:4:0"
+              }
+            ],
+            "id": 15,
+            "name": "VariableDeclaration",
+            "src": "153:14:0"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Lottery.AllTicketInfo",
+              "name": "AllTicketInfo",
+              "scope": 27,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "owner",
+                  "scope": 23,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 16,
+                    "name": "ElementaryTypeName",
+                    "src": "203:7:0"
+                  }
+                ],
+                "id": 17,
+                "name": "VariableDeclaration",
+                "src": "203:13:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "bets",
+                  "scope": 23,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 18,
+                    "name": "ElementaryTypeName",
+                    "src": "226:4:0"
+                  }
+                ],
+                "id": 19,
+                "name": "VariableDeclaration",
+                "src": "226:9:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "ticketNumber",
+                  "scope": 23,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256[]",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "uint256[]"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 20,
+                        "name": "ElementaryTypeName",
+                        "src": "245:4:0"
+                      }
+                    ],
+                    "id": 21,
+                    "name": "ArrayTypeName",
+                    "src": "245:6:0"
+                  }
+                ],
+                "id": 22,
+                "name": "VariableDeclaration",
+                "src": "245:19:0"
+              }
+            ],
+            "id": 23,
+            "name": "StructDefinition",
+            "src": "173:98:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "allTicketInfo",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct Lottery.AllTicketInfo[]",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct Lottery.AllTicketInfo[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "AllTicketInfo",
+                      "referencedDeclaration": 23,
+                      "type": "struct Lottery.AllTicketInfo"
+                    },
+                    "id": 24,
+                    "name": "UserDefinedTypeName",
+                    "src": "276:13:0"
+                  }
+                ],
+                "id": 25,
+                "name": "ArrayTypeName",
+                "src": "276:15:0"
+              }
+            ],
+            "id": 26,
+            "name": "VariableDeclaration",
+            "src": "276:36:0"
+          }
+        ],
+        "id": 27,
+        "name": "ContractDefinition",
+        "src": "24:291:0"
+      }
+    ],
+    "id": 28,
+    "name": "SourceUnit",
+    "src": "0:315:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xfb3ADB0C103f27D12E3E7e6166556Cfd884E1e78",
+      "transactionHash": "0x85e63dd31ded027f38a89699a1e194bbd8eaa7d5244c55cd2551b89bf72a64a5"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2023-12-17T06:55:21.724Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
